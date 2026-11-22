@@ -27,9 +27,16 @@ jobs:
         working-directory: sync-server
     steps:
       - uses: actions/checkout@v4
+      - name: 若目录尚未创建则跳过
+        id: check
+        run: |
+          if [ -f package.json ] || [ -f pyproject.toml ]; then echo "exists=1" >> "$GITHUB_OUTPUT"; else echo "exists=0" >> "$GITHUB_OUTPUT"; fi
       - uses: astral-sh/setup-uv@v6
+        if: steps.check.outputs.exists == '1'
       - run: uv sync
+        if: steps.check.outputs.exists == '1'
       - run: uv run pytest -q
+        if: steps.check.outputs.exists == '1'
 
   desktop:
     runs-on: ubuntu-latest
@@ -38,12 +45,20 @@ jobs:
         working-directory: desktop
     steps:
       - uses: actions/checkout@v4
+      - name: 若目录尚未创建则跳过
+        id: check
+        run: |
+          if [ -f package.json ]; then echo "exists=1" >> "$GITHUB_OUTPUT"; else echo "exists=0" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-node@v4
+        if: steps.check.outputs.exists == '1'
         with:
           node-version: 22
       - run: npm install
+        if: steps.check.outputs.exists == '1'
       - run: npm run typecheck
+        if: steps.check.outputs.exists == '1'
       - run: npm run build:renderer
+        if: steps.check.outputs.exists == '1'
 
   mobile:
     runs-on: ubuntu-latest
@@ -52,8 +67,15 @@ jobs:
         working-directory: mobile
     steps:
       - uses: actions/checkout@v4
+      - name: 若目录尚未创建则跳过
+        id: check
+        run: |
+          if [ -f package.json ]; then echo "exists=1" >> "$GITHUB_OUTPUT"; else echo "exists=0" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-node@v4
+        if: steps.check.outputs.exists == '1'
         with:
           node-version: 22
       - run: npm install
+        if: steps.check.outputs.exists == '1'
       - run: npm run typecheck
+        if: steps.check.outputs.exists == '1'
