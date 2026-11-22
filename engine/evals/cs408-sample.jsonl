@@ -1,0 +1,12 @@
+{"id": "ds-01", "question": "讲一下为什么快速排序的平均时间复杂度是 O(nlogn)，最坏情况是什么？", "must_include": ["划分", "O(n^2)", "基准"]}
+{"id": "ds-02", "question": "二叉树的先序序列和中序序列能唯一确定一棵二叉树吗？先序和后序呢？", "must_include": ["中序", "唯一", "不能"]}
+{"id": "ds-03", "question": "Dijkstra 算法为什么不能处理负权边？", "must_include": ["负权", "贪心"]}
+{"id": "ds-04", "question": "什么是平衡二叉树？LL 型失衡怎么调整？", "must_include": ["平衡因子", "右旋"]}
+{"id": "os-01", "question": "进程和线程的区别是什么？", "must_include": ["资源", "调度", "地址空间"]}
+{"id": "os-02", "question": "银行家算法用来解决什么问题？安全状态是什么意思？", "must_include": ["死锁", "安全序列"]}
+{"id": "os-03", "question": "页式存储中，快表（TLB）的作用是什么？", "must_include": ["页表", "访存", "命中"]}
+{"id": "co-01", "question": "Cache 的直接映射、全相联、组相联有什么区别？", "must_include": ["组", "块", "冲突"]}
+{"id": "co-02", "question": "流水线的数据冒险是什么？怎么解决？", "must_include": ["数据相关", "转发", "阻塞"]}
+{"id": "cn-01", "question": "TCP 三次握手为什么不能是两次？", "must_include": ["SYN", "ACK", "已失效"]}
+{"id": "cn-02", "question": "CSMA/CD 的最短帧长是怎么计算的？", "must_include": ["往返", "传播时延", "数据传输速率"]}
+{"id": "cn-03", "question": "子网 192.168.1.0/26 能容纳多少台主机？", "must_include": ["62"]}
